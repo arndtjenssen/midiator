@@ -1,4 +1,6 @@
-# The MIDIator driver for JRuby on OSX.
+# The MIDIator driver for JRuby on OSX. Download mmj from
+# http://www.humatic.de/htools/mmj.htm and place the jar and jnilib in
+# /Library/Java/Extensions.
 #
 # == Authors
 #
