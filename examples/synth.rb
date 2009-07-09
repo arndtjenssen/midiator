@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 #
-# A simple example that plays the chromatic scale from C4 to C6 and back
-# again.  Also shows how to use the MIDIator::Notes mixin.
+# A copy of the chromatic scale example which uses the OS X built-in synth.
 #
 # == Authors
 #
@@ -18,7 +17,7 @@ require 'rubygems'
 require 'midiator'
 
 midi = MIDIator::Interface.new
-midi.autodetect_driver
+midi.use :dls_synth
 midi.instruct_user!
 
 include MIDIator::Notes

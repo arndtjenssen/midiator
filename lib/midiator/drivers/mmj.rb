@@ -1,4 +1,4 @@
-# The MIDIator driver for JRuby on OSX. Download mmj from
+# The MIDIator driver for JRuby on OSX. To get started, download mmj from
 # http://www.humatic.de/htools/mmj.htm and place the jar and jnilib in
 # /Library/Java/Extensions.
 #
@@ -18,20 +18,20 @@ class MIDIator::Driver::Mmj < MIDIator::Driver # :nodoc:
   include_package 'de.humatic.mmj'
   
   def outputs
-    MidiSystem.get_outputs.inject([{},0]) { |(map, i), out|
-      [map.update(out => i), i+1]
+    MidiSystem.get_outputs.inject( [{},0] ) {|(map, i), out|
+      [ map.update(out => i), i + 1 ]
     }.first
   end
-  
-	def open(output = 0)
-    @out = MidiSystem.open_midi_output(output)
-	end
-  
-	def message(*args)
-    @out.send_midi(args.to_java(:byte))
-	end
-  
-	def close
+
+  def open( output = 0 )
+    @out = MidiSystem.open_midi_output( output )
+  end
+
+  def message( *args )
+    @out.send_midi( args.to_java(:byte) )
+  end
+
+  def close
     MidiSystem.close_midi_system
 	end
 end
